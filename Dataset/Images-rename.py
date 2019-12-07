@@ -11,7 +11,7 @@ class ImageRename():
         for item in filelist:
             if item.endswith('.jpg'):
                 oldname = os.path.join(os.path.abspath(self.path), item)
-                newname = os.path.join(os.path.abspath(self.path), s+ format(str(n), '0>3s') + '.jpg')
+                newname = os.path.join(os.path.abspath(self.path), s+format(str(n), '0>3s') + '.jpg')
                 os.rename(oldname, newname)
                 n += 1
         print ('total %d to rename & converted %d jpgs' % (total_num, n))
