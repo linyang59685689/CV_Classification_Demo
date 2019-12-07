@@ -4,11 +4,11 @@ import torch.nn.functional as F
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(3, 3, 3)
+        self.conv1 = nn.Conv2d(3, 6, 5,padding=1)
         self.maxpool1 = nn.MaxPool2d(kernel_size=2)
         self.relu1 = nn.ReLU(inplace=True)
 
-        self.conv2 = nn.Conv2d(3, 6, 3)
+        self.conv2 = nn.Conv2d(6, 6, 5,padding=1)
         self.maxpool2 = nn.MaxPool2d(kernel_size=2)
         self.relu2 = nn.ReLU(inplace=True)
 

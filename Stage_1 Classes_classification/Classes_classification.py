@@ -36,7 +36,6 @@ class MyDataset():
 
     def __getitem__(self, idx):
         image_path = self.file_info['path'][idx]
-        image_path=image_path.replace('\\','/')
         if not os.path.isfile(image_path):
             print(image_path + '  does not exist!')
             return None
@@ -95,7 +94,6 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=50):
 
         # Each epoch has a training and validation phase
         for phase in ['train', 'val']:
-            print(phase)
             if phase == 'train':
                 model.train()
             else:
@@ -123,7 +121,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=50):
                         loss.backward()
                         optimizer.step()
 
-                print("loss.item:"+str(loss.item())+" inputs.size(0)"+str(inputs.size(0))+" "+str(inputs.size()))
+                # print("loss.item:"+str(loss.item())+" inputs.size(0)"+str(inputs.size(0))+" "+str(inputs.size()))
                 running_loss += loss.item() * inputs.size(0)
 
                 corrects_classes += torch.sum(preds_classes == labels_classes)

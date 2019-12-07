@@ -11,8 +11,10 @@ DATA_info = {'train': {'path': [], 'species': []},
              }
 for p in PHASE:
     for s in SPECIES:
-        DATA_DIR = ROOTS + p + '\\' + s
+        DATA_DIR = ROOTS + p + '/' + s
         DATA_NAME = os.listdir(DATA_DIR)
+        DATA_NAME=sorted(DATA_NAME)
+        print(DATA_NAME)
 
         for item in DATA_NAME:
             try:
